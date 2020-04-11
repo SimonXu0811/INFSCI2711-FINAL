@@ -5,6 +5,7 @@ import {LoginPageComponent} from './login-page/login-page.component';
 import {RegisterPageComponent} from './register-page/register-page.component';
 import {MyaccountPageComponent} from './myaccount-page/myaccount-page.component';
 import {ForgetpasswordPageComponent} from './forgetpassword-page/forgetpassword-page.component';
+import {VirtualizationPageComponent} from './virtualization-page/virtualization-page.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'user/login', component: LoginPageComponent},
   {path: 'user/register', component: RegisterPageComponent},
   {path: 'user/myaccount', component: MyaccountPageComponent},
-  {path: 'user/forgetpassword', component: ForgetpasswordPageComponent}
+  {path: 'user/forgetpassword', component: ForgetpasswordPageComponent},
+  {path: 'user/virtualization', component: VirtualizationPageComponent}
 ];
 
 @NgModule({
