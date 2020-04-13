@@ -17,8 +17,8 @@ Admin will handle all reports.
 |TAO TAO|tat76|MongoDB|
 |QIXIAN WU|qiw63|Neo4j|
 |SONG FANG|sof10|Neo4j|
-|||Neo4j|
-|||Neo4j|
+|XIAOYANG WANG|xiw137|Neo4j|
+|CHUQIAN MA|chm179|Neo4j|
 
 # Function
 ### Main Page
