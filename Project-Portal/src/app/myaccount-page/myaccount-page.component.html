@@ -7,8 +7,8 @@
             <h4 class="card-title">Edit Profile</h4>
             <p class="card-category">Complete your profile</p>
           </div>
-          <div class="card-body">
-            <form>
+          <div class="card-body" >
+            <form  (ngSubmit)="onSubmit()">
               <div class="row">
                 <div class="col-md-5">
                   <mat-form-field class="example-full-width">
@@ -17,12 +17,16 @@
                 </div>
                 <div class="col-md-3">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Username">
+                    <input matInput placeholder={{user.username}}  disabled>
                   </mat-form-field>
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Email address" type="email">
+                    <input matInput
+                           maxlength="256"
+                           placeholder={{user.email}}
+                           [(ngModel)]="user.email"
+                           name="email" >
                   </mat-form-field>
                 </div>
               </div>
@@ -48,17 +52,17 @@
               <div class="row">
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="City" type="text">
+                    <input matInput placeholder={{user.city}}  [(ngModel)]="user.city" name="city" type="text">
                   </mat-form-field>
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Country" type="text">
+                    <input matInput placeholder={{user.state}} [(ngModel)]="user.state" name="state" type="text">
                   </mat-form-field>
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Postal Code" type="text">
+                    <input matInput placeholder={{user.phonenumber}} [(ngModel)]="user.phonenumber" name="phonenumber" type="text">
                   </mat-form-field>
                 </div>
               </div>
