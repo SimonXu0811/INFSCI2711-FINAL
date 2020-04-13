@@ -17,8 +17,8 @@ Admin will handle all reports.
 |TAO TAO|tat76|MongoDB|
 |QIXIAN WU|qiw63|Neo4j|
 |SONG FANG|sof10|Neo4j|
-|||Neo4j|
-|||Neo4j|
+|XIAOYANG WANG|xiw137|Neo4j|
+|CHUQIAN MA|chm179|Neo4j|
 
 # Function
 ### Main Page
@@ -50,27 +50,28 @@ Admin will handle all reports.
 # RESTFUL APIs
 ||Operation|API|Description|
 |:---|---|---|---|
-|[]|GET|api/accidents/numbersByState|Select numbers of accidents per state|
-|[]|GET|api/accidents/numbersByCounty/:state|Select numbers of accidents per county by state|
-|[]|GET|api/accidents/numbersByRoad/:state/:city/:road|Searching by road, city and state|
-|[]|GET|api/accidents/numbersByHumidity|Select numbers of accidents by humidity|
-|[]|GET|api/accidents/numbersByVisibility|Select numbers of accidents by visibility|
-|[]|GET|api/accidents/numbersByWeatherCondition|Select numbers of accidents by weather condition|
-|[]|POST|api/user/register|User registration|
-|[]|GET|api/user/:username/:city/:state/:email/:phonenumber|Check info is matched or not|
-|[]|POST|api/user/:username/resetPassword|Reset password for user|
-|[]|GET|api/user/:username/:password|Check info is matched or not|
-|[]|GET|api/user/:username|Get all user info|
-|[]|UPDATE|api/user/:username/updateAccount|update new info for user|
-|[]|UPDATE|api/user/:username/settings|Update report settings|
-|[]|POST|api/user/:username/self-report|Self-report accidents|
-|[]|GET|api/user/:username/reports|View all history reports|
-|[]|DELETE|api/user/:username/:reportID|Delete pending report|
-|[]|GET|api/admin/:username/:password|Check info is matched for admin|
-|[]|POST|api/admin/:username/reports|Handle report by comments|
-|[]|UPDATE|api/admin/:username/updateReport/:reportID|Update report details|
-|[]|DELETE|api/admin/:reportID|Delete user|
-|[]|DELETE|api/admin/deleteUser/:username|Delete user|
+||GET|api/accidents/numbersByState|Select numbers of accidents per state|
+||GET|api/accidents/numbersByCounty/:state|Select numbers of accidents per county by state|
+||GET|api/accidents/accidentsByRoad/:state/:city/:road|Searching by road, city and state|
+||GET|api/accidents/numbersByHumidity|Select numbers of accidents by humidity|
+||GET|api/accidents/numbersByVisibility|Select numbers of accidents by visibility|
+||GET|api/accidents/numbersByWeatherCondition|Select numbers of accidents by weather condition|
+||POST|api/user/signup|User registration|
+||GET|api/user/infoCheck|Check info is matched or not|
+||PUT|api/user/updatePassword/:username|Reset password for user|
+||POST|api/user/login|Check info is matched or not|
+||GET|api/user/:username|Get all user info|
+||PUT|api/user/updateAllInfo/:username|update new info for user|
+||PUT|api/user/updateSettings/:username|Update report settings|
+||POST|api/user/self-report/:username|Self-report accidents|
+||GET|api/user/reports/:username|View all history reports|
+||DELETE|api/user/:username/:reportID|Delete pending report|
+||POST|api/admin/login|Check info is matched for admin|
+||PUT|api/admin/:reportID|Update report details|
+||DELETE|api/admin/:reportID|Delete user|
+||DELETE|api/admin/:username|Delete user|
+||GET|api/admin/allUser|Get all users|
+||GET|api/admin/allAccidents|Get top 100 recent accidents|
 
 # Git
 1. All developers should create a new branch, naming rules for both local and remote is develop-\<FirstName\>

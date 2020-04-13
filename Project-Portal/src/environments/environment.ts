@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  PostgresApi: 'http://localhost:8080/PostgresApi',
+  Neo4jApi: 'http://localhost:8080/Neo4jApi',
+  GoogleMapApiKey: 'AIzaSyCunSDzUB8irdZU5KLBLsY7a87Iulf_br8'
 };
 
 /*

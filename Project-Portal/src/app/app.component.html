@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
+  <div  *ngIf=!isLoginPage() class="container">
     <a class="navbar-brand" href="#">
       <svg class="bi bi-cone-striped" fill="currentColor" height="30" viewBox="0 0 16 16" width="30"
            xmlns="http://www.w3.org/2000/svg">
@@ -22,10 +22,20 @@
           <a class="nav-link" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Start</a>
+          <a class="nav-link" href="searching">Road Searching</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Self-Report</a>
+          <a class="nav-link" href="virsualization">Factors Analysis</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Choose DataBase
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+            <a class="dropdown-item" href="#" (click)="changePostgreApi()">PostgreSQL</a>
+            <a class="dropdown-item" href="#" (click)="changeMongoDBApi()">MongoDB</a>
+            <a class="dropdown-item" href="#" (click)="changeNeo4jApi()">Neo4j</a>
+          </div>
         </li>
       </ul>
       <div class="inline my-2 my-lg-0">
@@ -43,10 +53,10 @@
               </svg>
             </a>
             <div aria-labelledby="navbarDropdown" class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item" href="#">My Account</a>
-              <a class="dropdown-item" href="#">Settings</a>
+              <a class="dropdown-item" href="/user/myaccount">My Account</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Login</a>
+              <a *ngIf="!this.authenticationService.currentUserValue || this.authenticationService.currentUserValue.user.isAdmin" class="dropdown-item" href="/user/login">Login/Sign Up</a>
+              <a *ngIf="this.authenticationService.currentUserValue && !this.authenticationService.currentUserValue.user.isAdmin" class="dropdown-item" (click)="authenticationService.Userlogout()">Logout</a>
             </div>
           </li>
         </ul>
@@ -62,7 +72,9 @@
 </div>
 
 
-<footer class="page-footer font-small mdb-color lighten-3 pt-4">
+
+
+<footer *ngIf="!isLoginPage()" class="page-footer font-small mdb-color lighten-3 pt-4">
 
   <div class="bg-light">
   <div class="container text-center text-md-left ">
@@ -91,22 +103,22 @@
         <ul class="list-unstyled">
           <li>
             <p>
-              <a class="link-unstyled" href="#!">PROJECTS</a>
+              <a class="link-unstyled" href="https://github.com/SimonXu0811/INFSCI2711-FINAL#infsci2711-final" target="_blank">PROJECTS</a>
             </p>
           </li>
           <li>
             <p>
-              <a class="link-unstyled" href="#!">TEAMS</a>
+              <a class="link-unstyled" href="https://github.com/SimonXu0811/INFSCI2711-FINAL#contributors" target="_blank">TEAMS</a>
             </p>
           </li>
           <li>
             <p>
-              <a class="link-unstyled" href="#!">DATA SOURCE</a>
+              <a class="link-unstyled" href="https://www.kaggle.com/sobhanmoosavi/us-accidents" target="_blank">DATA SOURCE</a>
             </p>
           </li>
           <li>
             <p>
-              <a class="link-unstyled" href="#!">ADMIN LOGIN</a>
+              <a class="link-unstyled" href="/admin/login">ADMIN LOGIN</a>
             </p>
           </li>
         </ul>
