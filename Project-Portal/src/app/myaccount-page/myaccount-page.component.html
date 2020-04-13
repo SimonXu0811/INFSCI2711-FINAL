@@ -10,21 +10,19 @@
           <div class="card-body" >
             <form  (ngSubmit)="onSubmit()">
               <div class="row">
-                <div class="col-md-5">
-                  <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Company (disabled)" disabled>
-                  </mat-form-field>
-                </div>
-                <div class="col-md-3">
+
+
+                <div class="col-md-6">
                   <mat-form-field class="example-full-width">
                     <input matInput placeholder={{user.username}}  disabled>
                   </mat-form-field>
                 </div>
-                <div class="col-md-4">
+
+                <div class="col-md-6">
                   <mat-form-field class="example-full-width">
                     <input matInput
                            maxlength="256"
-                           placeholder={{user.email}}
+                           placeholder="email"
                            [(ngModel)]="user.email"
                            name="email" >
                   </mat-form-field>
@@ -52,28 +50,21 @@
               <div class="row">
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder={{user.city}}  [(ngModel)]="user.city" name="city" type="text">
+                    <input matInput placeholder="city"  [(ngModel)]="user.city" name="city" type="text">
                   </mat-form-field>
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder={{user.state}} [(ngModel)]="user.state" name="state" type="text">
+                    <input matInput placeholder="state" [(ngModel)]="user.state" name="state" type="text">
                   </mat-form-field>
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder={{user.phonenumber}} [(ngModel)]="user.phonenumber" name="phonenumber" type="text">
+                    <input matInput placeholder="phonenumber" [(ngModel)]="user.phonenumber" name="phonenumber" type="text">
                   </mat-form-field>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <label>About Me</label>
-                  <mat-form-field class="example-full-width">
-                    <textarea matInput placeholder="Sample text"></textarea>
-                  </mat-form-field>
-                </div>
-              </div>
+
               <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
               <div class="clearfix"></div>
             </form>
@@ -99,4 +90,110 @@
       </div>
     </div>
   </div>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Report</h4>
+            <p class="card-category">Complete your Report</p>
+          </div>
+          <div class="card-body" >
+            <form  (ngSubmit)="report()">
+              <div class="row">
+
+                <div class="col-md-5">
+                  <mat-form-field>
+                    <input matInput [matDatepicker]="myDatepicker"  [(ngModel)]="accident.startTime" name="startTime" >
+                    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+                    <mat-datepicker #myDatepicker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                  <mat-form-field>
+                    <mat-label>Weathercondition</mat-label>
+                    <mat-select matNativeControl required  [(ngModel)]="accident.weathercondition" [value]="accident.weathercondition" name="weathercondition1">
+                      <mat-option value="Clear">Clear</mat-option>
+                      <mat-option value="Cloudy">Cloudy</mat-option>
+                      <mat-option value="Windy">Windy</mat-option>
+                      <mat-option value="Foggy">Foggy</mat-option>
+                      <mat-option value="Rainy">Rainy</mat-option>
+                      <mat-option value="Snowy">Snowy</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput
+                           maxlength="256"
+                           placeholder="zipcode"
+                           [(ngModel)]="accident.zipcode"
+                           name="email" >
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="visibility" [(ngModel)]="accident.visibility" name="visibility" type="text">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="humidity"  [(ngModel)]="accident.humidity" name="humidity" type="text">
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="latitude" [(ngModel)]="accident.latitude" name="latitude" type="text">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="longitude"  [(ngModel)]="accident.longitude" name="longitude" type="text">
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="county" [(ngModel)]="accident.county" name="county"  type="text">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="city"  [(ngModel)]="accident.city" name="city" type="text">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="state" [(ngModel)]="accident.state" name="state" type="text">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="street" [(ngModel)]="accident.street" name="street" type="text">
+                  </mat-form-field>
+                </div>
+              </div>
+
+
+              <button mat-raised-button type="submit" class="btn btn-danger pull-right">Report Accident</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </div>

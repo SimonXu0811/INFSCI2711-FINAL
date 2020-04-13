@@ -6,7 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {MatPaginatorModule} from '@angular/material';
+import {MatDatepickerModule, MatNativeDateModule, MatPaginatorModule, MatSelectModule} from '@angular/material';
 
 import {AppComponent} from './app.component';
 import {HomepageComponent} from './home-page/homepage.component';
@@ -64,6 +64,7 @@ FusionChartsModule.fcRoot(FusionCharts, charts, Maps, FusionTheme, USA);
     Chart4Component,
   ],
   imports: [
+    MatNativeDateModule,
     BrowserModule,
     AppRoutingModule,
     UsMapModule,
@@ -73,6 +74,7 @@ FusionChartsModule.fcRoot(FusionCharts, charts, Maps, FusionTheme, USA);
     MatInputModule,
     DataTablesModule,
     MatFormFieldModule,
+    MatDatepickerModule,
     MatPaginatorModule,
     FusionChartsModule,
     AgmCoreModule.forRoot({
@@ -80,7 +82,15 @@ FusionChartsModule.fcRoot(FusionCharts, charts, Maps, FusionTheme, USA);
       libraries: ['places', 'geometry']
     }),
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatSelectModule
+  ],
+  exports: [
+    MatDatepickerModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatTableModule,
   ],
   providers: [MarkerManager],
   bootstrap: [AppComponent]

@@ -48,6 +48,7 @@ export class UserService {
   }
 
   public get currentAdminValue(): Users {
+    console.log("Null exit here in userservice idk why");
     return this.currentAdminSubject.value;
   }
 

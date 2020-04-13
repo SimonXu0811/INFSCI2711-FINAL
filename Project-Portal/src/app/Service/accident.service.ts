@@ -43,6 +43,23 @@ export class AccidentService {
       }
     });
   }
+
+  reportAccident(username: string, state: string, city: string, street: string, zipcode: string, visibility: number, humidity: number,date:string,weathercondition:string) {
+    return this.http.put<Accidents>(this.api + `/admin/user/self-report/${username}`, {
+      date,
+      state,
+      city,
+      street,
+      zipcode,
+      visibility,
+      humidity
+    }, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        Authorization: 'Bearer ' + this.userService.currentAdminValue.token
+      }
+    });
+  }
 }
 
 interface Marker {

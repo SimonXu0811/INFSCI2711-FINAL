@@ -4,6 +4,9 @@ import {Router} from '@angular/router';
 import {UserService} from '../Service/user.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Users} from '../Models/users';
+import {environment} from '../../environments/environment';
+import {Accidents} from '../Models/accidents';
+import {AccidentService} from '../Service/accident.service';
 
 @Component({
   selector: 'app-myaccount-page',
@@ -17,30 +20,44 @@ export class MyaccountPageComponent implements OnInit {
   private user: User;
   private myForm: FormGroup;
   private validators: any;
+  private currentAdminSubject: any;
+  private tempapi: string;
+  private api: string;
+  private accident:Accidents;
 
-  constructor(private authenticationService: AuthenticationService,private userService: UserService,
+  constructor(private authenticationService: AuthenticationService,private userService: UserService,private accidentService:AccidentService,
               private router: Router) {
-    this.user=this.userService.currentUserValue.user;
     if (!this.authenticationService.currentUserValue) {
       this.router.navigate(['user/login']);
     }
     console.log(this.authenticationService.currentUserValue.user);
+    this.user=this.authenticationService.currentUserValue.user;
+    this.accident= new Accidents;
+    // this.tempapi = sessionStorage.getItem('api');
+    // if (this.tempapi) {
+    //   this.api = this.tempapi;
+    // } else {
+    //   this.api = environment.PostgresApi;
+    // }
   }
 
   ngOnInit() {
     this.myForm = new FormGroup({
       'email': new FormControl(null, Validators.required),
-      // 'policyNo': new FormControl(null, this.validators.minLength(5))
-      // the rest of inputs with the same approach
     });
   };
+
 
   onSubmit(){
     console.log('sdfdfg');
     console.log(this.myForm.value);
     console.log(this.user);
     this.userService.updateUser(this.user.username,this.user.phonenumber,this.user.email,this.user.city,this.user.state);
+  }
 
+  report() {
+    console.log(this.accident);
+    this.accidentService.reportAccident(this.user.username, this.accident.state, this.accident.city, this.accident.street, this.accident.zipcode, this.accident.visibility, this.accident.humidity,this.accident.startTime,this.accident.weathercondition)
   }
 }
 
