@@ -1,5 +1,4 @@
-# INFSCI2711-FINAL
-This is a final project for INFSCI2711
+
 
 # Description
 A accident report website for users to visulize all accidents in US since 2016.  
